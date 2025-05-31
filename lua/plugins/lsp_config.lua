@@ -72,6 +72,9 @@ return {
         config = true,
       },
     },
+    opts = {
+      filewatching = "auto",
+    },
     config = function()
       local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
       local cmd = {
@@ -85,7 +88,7 @@ return {
         vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
       }
 
-      require("roslyn").setup({
+      vim.lsp.config("roslyn", {
         cmd = cmd,
         handlers = require("rzls.roslyn_handlers"),
         settings = {
@@ -107,8 +110,18 @@ return {
           ["csharp|code_lens"] = {
             dotnet_enable_references_code_lens = true,
           },
+          ["csharp|completion"] = {
+            dotnet_show_completion_items_from_unimported_namespaces = true,
+          },
+          ["csharp|symbol_search"] = {
+            dotnet_search_reference_assemblies = true,
+          },
+          ["csharp|formatting"] = {
+            dotnet_organize_imports_on_format = true,
+          },
         },
       })
+      vim.lsp.enable("roslyn")
     end,
     init = function()
       -- We add the Razor file types before the plugin loads.
