@@ -25,64 +25,6 @@ return {
       -- Your setup opts here
     },
   },
-
-  -- SECTION: CodingCompanionAgent
-  -- {
-  --   "olimorris/codecompanion.nvim",
-  --   lazy = false,
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-treesitter/nvim-treesitter",
-  --     -- "hrsh7th/nvim-cmp", -- Optional: for completion
-  --     "nvim-telescope/telescope.nvim", -- Optional: for picker functionality
-  --   },
-  --   config = function()
-  --     require("codecompanion").setup({
-  --       adapters = {
-  --         anthropic = function()
-  --           return require("codecompanion.adapters").extend("anthropic", {
-  --             name = "anthropic",
-  --             env = {
-  --               api_key = "...",
-  --             },
-  --           })
-  --         end,
-  --       },
-  --       strategies = {
-  --         chat = {
-  --           adapter = "anthropic",
-  --         },
-  --         inline = {
-  --           adapter = "anthropic",
-  --         },
-  --       },
-  --       display = {
-  --         chat = {
-  --           window = {
-  --             layout = "vertical", -- float|vertical|horizontal|buffer
-  --           },
-  --         },
-  --       },
-  --       extensions = {
-  --         mcphub = {
-  --           callback = "mcphub.extensions.codecompanion",
-  --           opts = {
-  --             make_vars = true,
-  --             make_slash_commands = true,
-  --             show_result_in_chat = true,
-  --           },
-  --         },
-  --       },
-  --     })
-  --   end,
-  --   init = function() end,
-  -- },
-  -- {
-  --   "olimorris/codecompanion.nvim",
-  --   dependencies = {
-  --     "ravitemer/mcphub.nvim",
-  --   },
-  -- },
   {
     "OXY2DEV/markview.nvim",
     lazy = false,
@@ -93,22 +35,6 @@ return {
       },
     },
   },
-
-  -- copilot settings
-  --
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   build = ":Copilot auth",
-  --   opts = {
-  --     suggestion = { enabled = false },
-  --     panel = { enabled = false },
-  --     filetypes = {
-  --       cs = false,
-  --       rs = false,
-  --     },
-  --   },
-  -- },
 
   {
     "saghen/blink.cmp",
