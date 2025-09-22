@@ -12,7 +12,42 @@ vim.api.nvim_create_user_command("CreateWordLink", create_word_link.func, {
 
 return {
   {
+    "mason.nvim",
+    { "mason-org/mason-lspconfig.nvim", config = function() end },
+  },
+  {
     "norcalli/nvim-colorizer.lua",
+  },
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({
+        -- Global settings
+        winopts = {
+          height = 0.85,
+          width = 0.80,
+          row = 0.35,
+          col = 0.50,
+          border = "rounded",
+          preview = {
+            default = "bat",
+            border = "border",
+            wrap = "nowrap",
+            hidden = "nohidden",
+            vertical = "down:45%",
+            horizontal = "right:50%",
+            layout = "flex",
+            flip_columns = 120,
+          },
+        },
+        keymap = {
+          fzf = {
+            ["ctrl-q"] = "select-all+accept",
+          },
+        },
+      })
+    end,
   },
   {
     "hedyhli/outline.nvim",
@@ -33,6 +68,9 @@ return {
         filetypes = { "markdown", "codecompanion" },
         ignore_buftypes = {},
       },
+    },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
     },
   },
 
@@ -74,7 +112,16 @@ return {
       completion = { documentation = { auto_show = false } },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            kind = "Copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
         per_filetype = {
           codecompanion = { "codecompanion" },
         },

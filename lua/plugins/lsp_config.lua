@@ -7,58 +7,24 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 require("lspconfig").zls.setup({})
+require("mason").setup({
+  registries = {
+    "github:mason-org/mason-registry",
+    "github:Crashdummyy/mason-registry",
+  },
+})
 
 return {
   {
     "nvim-treesitter/playground",
   },
   {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    lazy = false,
+    build = ":TSUpdate",
     dependencies = {
-      {
-        "fatih/vim-go",
-      },
-      {
-        "williamboman/mason.nvim",
-        opts = {
-          registries = {
-            "github:mason-org/mason-registry",
-            "github:crashdummyy/mason-registry",
-          },
-        },
-      },
-      "williamboman/mason-lspconfig.nvim",
-      {},
-    },
-    opts = {
-      servers = {
-        sourcekit = {
-          cmd = { "sourcekit-lsp" },
-          filetypes = { "swift" },
-          rootPatterns = { "Package.swift", ".git" },
-        },
-        gopls = {
-          cmd = { "gopls" },
-          filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        },
-        ols = {
-          cmd = { "ols" },
-          filetypes = { "odin" },
-          rootPatterns = { "ols.json", ".git" },
-          init_options = {
-            enable_format = true,
-            enable_hover = true,
-            enable_document_symbols = true,
-            -- enable_semantic_tokens = true, // Don't want highlighting
-            enable_inlay_hints = true,
-            enable_snippets = false,
-            enable_references = true,
-            enable_rename = true,
-            enable_label_details = true,
-          },
-        },
-      },
+      "OXY2DEV/markview.nvim",
     },
   },
   {

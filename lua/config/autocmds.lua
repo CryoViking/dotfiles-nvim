@@ -5,6 +5,18 @@
 vim.api.nvim_create_augroup("AddMuliCommentString", { clear = true })
 vim.api.nvim_create_augroup("AddOdinCommentString", { clear = true })
 vim.api.nvim_create_augroup("AddCsCommentString", { clear = true })
+vim.api.nvim_create_augroup("DisableLSPForCake", { clear = true })
+
+-- Turn off LSP for *.cake files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = "DisableLSPForCake",
+  callback = function()
+    vim.defer_fn(function()
+      vim.cmd("LspStop")
+    end, 100)
+  end,
+  pattern = { "cake" },
+})
 
 -- Comment string for Odin
 vim.api.nvim_create_autocmd({ "FileType" }, {

@@ -5,7 +5,7 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.pairs",
+    "nvim-config/mini.pairs",
     enabled = false,
   },
 }
