@@ -16,6 +16,21 @@ require("mason").setup({
 
 return {
   {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+    opts = {
+      preview = {
+        filetypes = { "markdown", "codecompanion" },
+        ignore_buftypes = {},
+      },
+    },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+
+  {
     "nvim-treesitter/playground",
   },
   {
@@ -23,9 +38,6 @@ return {
     branch = "master",
     lazy = false,
     build = ":TSUpdate",
-    dependencies = {
-      "OXY2DEV/markview.nvim",
-    },
   },
   {
     "seblyng/roslyn.nvim",

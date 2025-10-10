@@ -89,3 +89,7 @@ map("n", "<leader>D", fzf.diagnostics_workspace, { desc = "Workspace diagnostics
 
 -- Visual mode search
 map("v", "<leader>fg", fzf.grep_visual, { desc = "Grep selection" })
+
+-- Diagnostics
+map("n", "<leader>xd", require("fzf-lua").diagnostics_document, { desc = "Document diagnostics" })
+map("n", "<leader>xx", require("fzf-lua").diagnostics_workspace, { desc = "Workspace diagnostics" })

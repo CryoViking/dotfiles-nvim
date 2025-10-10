@@ -61,19 +61,11 @@ return {
     },
   },
   {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
+    "folke/lazydev.nvim",
     opts = {
-      preview = {
-        filetypes = { "markdown", "codecompanion" },
-        ignore_buftypes = {},
-      },
-    },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
+      library = {},
     },
   },
-
   {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
@@ -112,14 +104,13 @@ return {
       completion = { documentation = { auto_show = false } },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
         providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            kind = "Copilot",
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
-            async = true,
           },
         },
         per_filetype = {
