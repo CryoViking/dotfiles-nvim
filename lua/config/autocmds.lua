@@ -59,10 +59,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
   pattern = { "razor" },
 })
-
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---   callback = function()
---     vim.api.nvim_command("Copilot disable")
---   end,
---   pattern = { "rs", "cs", "cshtml" },
--- })
