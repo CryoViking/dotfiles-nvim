@@ -29,7 +29,6 @@ require("lazy").setup({
   ui = {
     border = "rounded",
   },
-  install = { colorscheme = { "cryoviking", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
