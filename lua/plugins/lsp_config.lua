@@ -16,6 +16,21 @@ require("mason").setup({
 
 return {
   {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters = {
+        ["markdownlint-cli2"] = {
+          args = {
+            "--config",
+            "~/.config/nvim/linting/markdownlint.yaml",
+            "--",
+          },
+        },
+      },
+    },
+  },
+  {
     "OXY2DEV/markview.nvim",
     lazy = false,
     opts = {
