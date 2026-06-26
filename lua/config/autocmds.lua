@@ -53,9 +53,9 @@ vim.api.nvim_create_autocmd({ "FileType", "BufWritePre" }, {
   pattern = { "rs" },
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  callback = function()
-    vim.api.nvim_command("TSEnable highlight csharp")
-  end,
-  pattern = { "razor" },
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   callback = function()
+--     vim.api.nvim_command("TSEnable highlight csharp")
+--   end,
+--   pattern = { "razor" },
+-- })

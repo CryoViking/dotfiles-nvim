@@ -17,10 +17,12 @@ return {
       -- print(hostname) -- uncomment to get hostname of machine
       if hostname == "CryoForge.local" then
         require("cryo_themes").setup({
-          style = "fallout4_enhanced",
-          transparent = true,
+          -- style = "fallout4_enhanced",
+          style = "sleeping_forest",
+          -- transparent = true,
         })
-        vim.cmd.colorscheme("cryo_themes-fallout4_enhanced")
+        -- vim.cmd.colorscheme("cryo_themes-fallout4_enhanced")
+        vim.cmd.colorscheme("cryo_themes-sleeping_forest")
       elseif hostname == "CryoBeast" then
         require("cryo_themes").setup({
           style = "cyberpunk",
