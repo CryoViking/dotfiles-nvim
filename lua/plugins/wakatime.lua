@@ -1,3 +1,9 @@
 return {
-  { "wakatime/vim-wakatime", lazy = false },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+    opts = {
+      plugin_name = "neovim-wakatime",
+    },
+  },
 }
