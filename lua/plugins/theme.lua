@@ -2,11 +2,6 @@ local opt = vim.opt
 
 opt.relativenumber = false
 
--- This is for nord if I ever decide to enable it.
-vim.g.nord_bold = false
-vim.g.nord_italic = false
-vim.g.nord_disable_background = true
-
 return {
   -- my theme <3
   {
@@ -19,6 +14,9 @@ return {
         require("cryo_themes").setup({
           style = "sleeping_forest",
           transparent = true,
+          styles = {
+            comments = { italic = true },
+          },
         })
         vim.cmd.colorscheme("cryo_themes-sleeping_forest")
       elseif hostname == "CryoGrimiore.local" then
