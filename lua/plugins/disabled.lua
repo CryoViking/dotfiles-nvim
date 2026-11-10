@@ -1,7 +1,7 @@
 -- disable nvim notifications
 return {
   {
-    "nvim-tressitter/nvim-treesitter-context",
+    "nvim-treesitter/nvim-treesitter-context",
     enabled = false,
   },
   {
