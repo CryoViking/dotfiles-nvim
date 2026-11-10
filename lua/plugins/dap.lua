@@ -4,6 +4,10 @@ require("lazydev").setup({
 
 return {
   {
+    "mfussenegger/nvim-dap",
+    config = function() end,
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",

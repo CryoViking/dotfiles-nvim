@@ -6,15 +6,24 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
-require("lspconfig").zls.setup({})
-require("mason").setup({
-  registries = {
-    "github:mason-org/mason-registry",
-    "github:Crashdummyy/mason-registry",
-  },
-})
-
 return {
+  {
+    "mason-org/mason.nvim",
+    { "mason-org/mason-lspconfig.nvim", config = function() end },
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
+      ensure_installed = {
+        "clang-format",
+        "clang-tidy",
+      },
+    },
+  },
   {
     "mfussenegger/nvim-lint",
     optional = true,
@@ -30,39 +39,46 @@ return {
       },
     },
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        neocmake = {
+          init_options = {
+            lint = { enable = false },
+          },
+        },
+        zls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              gofumpt = true,
+              staticcheck = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+                shadow = true,
+              },
+              hints = {
+                parameterNames = true,
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                rangeVariableTypes = true,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "bash",
-        "c",
-        "diff",
-        "html",
-        "javascript",
-        "jsdoc",
-        "json",
+        "doxygen",
         "jsonc",
-        "lua",
-        "luadoc",
-        "luap",
-        "markdown",
-        "markdown_inline",
-        "printf",
-        "python",
-        "query",
-        "regex",
-        "toml",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "xml",
-        "yaml",
       },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
     },
   },
   {

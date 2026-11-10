@@ -12,10 +12,6 @@ vim.api.nvim_create_user_command("CreateWordLink", create_word_link.func, {
 
 return {
   {
-    "mason.nvim",
-    { "mason-org/mason-lspconfig.nvim", config = function() end },
-  },
-  {
     "norcalli/nvim-colorizer.lua",
   },
   {
